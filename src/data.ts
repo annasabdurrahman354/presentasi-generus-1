@@ -114,9 +114,9 @@ export const slides = [
       },
       {
         list: [
-          "Nonaktifkan: Jika santri/guru sedang cuti, selesai bertugas sementara waktu, atau masa studi habis, mereka bisa di-nonaktifkan. Status akan berubah, namun riwayat data tetap tersimpan.",
+          "Nonaktifkan: Jika santri/guru/pengurus selesai masa studinya, selesai bertugas sementara waktu, mereka bisa di-nonaktifkan. Status akan berubah, namun riwayat data tetap tersimpan.",
           "Blacklist: Digunakan untuk memberhentikan individu dengan riwayat pelanggaran berat. Mereka yang masuk ke dalam Blacklist akan dicegah jika mencoba didaftarkan ulang di ponpes manapun.",
-          "Mutasi Langsung ke Ponpes Lain: Sistem memungkinkan transfer Person dari Ponpes A ke Ponpes B. Setelah proses ini, afiliasi ponpes asal akan diakhiri dan akan berpindah ternaungi ke ponpes tujuan baru, membawa rekam jejak dan ID identitas yang sama."
+          "Mutasi Langsung ke Ponpes Lain: Sistem memungkinkan transfer Person dari Ponpes A ke Ponpes B. Setelah proses ini, data person di ponpes asal akan dinonaktifkan dan akan berpindah ternaungi ke ponpes tujuan baru, membawa rekam jejak dan ID identitas yang sama."
         ]
       }
     ]
@@ -131,9 +131,9 @@ export const slides = [
       },
       {
         list: [
-          "Data: Menyajikan seluruh biodata, status, tingkat kelompok asrama, hingga status SPP/Keuangan (sesuai role).",
-          "Mutasi: Tombol akses cepat (Action) untuk mengajukan perpindahan santri antar kelas/kelompok, maupun mutasi antar ponpes.",
-          "Cetak: Fitur untuk melakukan pencetakan berkas santri (seperti Biodata Santri, Rapor, atau Kartu Tanda Santri dengan barcode/QR-Code mesin tap)."
+          "Data: Menyajikan seluruh biodata, status, plotting kelas, kelompok, asrama, dan ruang makan.",
+          "Mutasi: Tombol akses cepat (Action) untuk mengajukan perpindahan santri antar kelas/kelompok/asrama dan ruang makan.",
+          "Cetak: Fitur untuk melakukan pencetakan berkas santri seperti, biodata, cocard dan stiker identitas."
         ]
       }
     ]
@@ -148,7 +148,7 @@ export const slides = [
       },
       {
         list: [
-          "Data: Menampilkan informasi NIK, bagian/departemen tugas, mata pelajaran (untuk guru), serta durasi kontrak/status aktif mereka di ponpes terkait."
+          "Data: Menampilkan informasi biodata guru dan pengurus, serta status aktif mereka di ponpes terkait."
         ]
       }
     ]
@@ -163,9 +163,9 @@ export const slides = [
       },
       {
         list: [
-          "Data Struktur: Membuat master data Kelas (Akademik), Kelompok (Pembinaan Khusus), Asrama (Pemondokan), dan Ruang Makan (Zona Makan).",
-          "Plotting: Proses menempatkan (assign) santri maupun guru pembina ke dalam spesifik Asrama/Kelompok/Kelas.",
-          "Mutasi Akademik & Zonasi: Pemindahan massal atau individual santri dari Kelas 1 ke Kelas 2, pemindahan kamar Asrama, atau pengalihan rute Ruang Makan santri."
+          "Data Struktur: Membuat master data Kelas (Pengajian), Kelompok, Asrama, dan Ruang Makan.",
+          "Plotting: Proses menempatkan (assign) santri ke spesifik Kelas/Kelompok/Asrama/Ruang Makan.",
+          "Mutasi Akademik & Zonasi: Pemindahan massal atau individual santri dari Kelas 1 ke Kelas 2, pemindahan kelompok santri, pemindahan kamar Asrama, atau pengalihan ruang makan."
         ]
       }
     ]
@@ -180,7 +180,7 @@ export const slides = [
       },
       {
         list: [
-          "Konsep: Setiap aktivitas santri memiliki titik-titik waktu wajib. Admin mendefinisikan sesi 'Jadwal Pengajian' (misal: Ba'da Magrib), 'Jadwal Makan' (Pagi, Siang, Sore), dan limit waktu 'Keluar/Masuk' gerbang.",
+          "Konsep: Setiap aktivitas santri memiliki titik-titik waktu wajib. Admin mendefinisikan sesi 'Jadwal Pengajian', 'Jadwal Makan', dan limit waktu 'Keluar/Masuk' gerbang.",
           "Cara Assign: Jadwal dapat di-assign kepada spesifik entitas, apakah itu berlaku Global untuk seluruh santri, spesifik untuk Kelas/Kelompok tertentu, atau khusus Asrama tertentu. Ini memungkinkan jadwal yang sangat dinamis antar asrama."
         ]
       }
@@ -192,7 +192,7 @@ export const slides = [
     icon: Cpu,
     content: [
       {
-        text: "Integrasi fisik dengan Mesin Presensi (Tap RFID / Fingerprint)."
+        text: "Integrasi fisik dengan Mesin Presensi (Tap RFID)."
       },
       {
         list: [
@@ -218,11 +218,11 @@ export const slides = [
     icon: ClipboardCheck,
     content: [
       {
-        text: "Modul pemantauan lalu lintas presensi dari input mesin maupun input manual (admin/guru)."
+        text: "Modul pemantauan lalu lintas presensi dari input mesin maupun input manual (petugas)."
       },
       {
         list: [
-          "Presensi Pengajian Santri: Data harian santri yang hadir kajian.",
+          "Presensi Pengajian Santri: Data harian santri yang hadir pengajian.",
           "Presensi Makan: Terhubung dengan jatah makan. Validasi apakah santri sudah mengambil jatah makannya atau belum.",
           "Presensi Keluar (Gate): Rekam jejak jam keluar ponpes dan jam kembali ke ponpes.",
           "Presensi Guru: Kehadiran absensi bagi tenaga pendidik/pengurus ponpes.",
@@ -241,7 +241,7 @@ export const slides = [
       },
       {
         subtitle: "Cara Merekap:",
-        text: "Admin/Wali Kelas dapat memilih filter Rentang Tanggal (Periode) dan tipe presensi (contoh: Rekap Pengajian Bulan Agustus). Sistem akan secara otomatis mengakumulasi log presensi, hadir, terlambat, alfa, izin, sakit, dan sambang, lalu menampilkan persentase kehadiran bulanan santri dalam format tabel reportase maupun export file yang siap dicetak."
+        text: "Petugas/Wali Kelas dapat memilih filter Rentang Tanggal lalu filtering santri yang akan direkap. Sistem akan secara otomatis mengakumulasi log presensi, hadir, terlambat, alfa, izin, sakit, dan sambang, lalu menampilkan persentase kehadiran bulanan santri dalam format tabel reportase maupun export file yang siap dicetak."
       }
     ]
   },
@@ -251,12 +251,12 @@ export const slides = [
     icon: DoorOpen,
     content: [
       {
-        text: "Fitur administrasi kunjungan orang tua (Sambang)."
+        text: "Fitur administrasi perizinan sambang."
       },
       {
         list: [
           "Pengajuan sampai Mulai Sambang: Santri bisa mengajukan jadwal Sambang pada tanggal tertentu melalu petugas. Petugas lalu memvalidasi/Acc. Saat jadwal hari H, santri datang meminta surat sambang dan petugas mengklik \"Mulai Sambang\" maka akan terekam sistem.",
-          "Lock Data (Tidak bisa Dimutasi): Saat status Santri sedang dalam proses Perizinan Sambang yang masih aktif berjalan, maka operasi administratif seperti Mutasi Santri akan Terkunci Otomatis (Blocked). Mekanisme ini mencegah anomali data (misal santri dimutasi saat sedang disinggahi keluarga)."
+          "Lock Data (Tidak bisa Dimutasi): Saat status Santri sedang dalam proses Perizinan Sambang yang masih aktif berjalan, maka operasi administratif seperti Mutasi Santri akan Terkunci Otomatis (Blocked). Mekanisme ini mencegah anomali data (misal santri dimutasi saat sedang sambang)."
         ]
       }
     ]
@@ -271,7 +271,7 @@ export const slides = [
       },
       {
         list: [
-          "Lewat Aplikasi: Santri atau pengurus mencatatkan surat sakit atau izin (pulang kampung sementara) ke admin asrama untuk diinput. Sesi pengajian pada rentang izin akan otomatis berstatus (\"I / S\" - Izin / Sakit).",
+          "Lewat Aplikasi: Pengurus mencatatkan santri sakit atau izin. Sesi pengajian pada rentang izin akan otomatis berstatus (\"I / S\" - Izin / Sakit).",
           "Lewat Mesin Tap Khusus: Admin bisa mengatur satu mesin khusus di area ponpes, ketika santri nge-tap, sistem secara instan akan memvalidasi status lognya menjadi Izin tanpa harus input manual form aplikasi."
         ]
       }
